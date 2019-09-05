@@ -63,6 +63,9 @@ Run `npm start` in the root folder of the project to start the development.
 ## Notes on Solution
 #### Node Version - v10.16.0
 
+### Couldn't manage unit test in the given time.
+### Lint - extended Airbnb. There is unused React plugin used by airbnb, which I realized only later and leave it there in the configuration.
+
 ### Query/Mutation Signatures
 ## Search Incidents
 `sortOrder` should be 'ASC' or 'DESC'. Default value is 'DESC'. This field is optional.<br>
