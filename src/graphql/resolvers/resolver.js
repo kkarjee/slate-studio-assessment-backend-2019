@@ -1,7 +1,9 @@
 import { UserInputError, ApolloError } from 'apollo-server-core';
 import Incident from '../../models/Incident'
 import User from '../../models/User'
-import { STATUS_CREATED, STATUS_ACKNOWLEDGED, ROLE_ENGINEER, STATUS_RESOLVED } from '../../config'
+import {
+  STATUS_CREATED, STATUS_ACKNOWLEDGED, ROLE_ENGINEER, STATUS_RESOLVED
+} from '../../config'
 
 const { ObjectId } = require('mongoose').Types;
 
