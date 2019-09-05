@@ -1,0 +1,51 @@
+import { gql } from 'apollo-server-express';
+
+export default gql`
+  type Incident {
+    id: ID!
+    title: String!
+    description: String
+    status: String
+    assignee: User
+    createdAt: String
+    updatedAt: String
+  }
+
+  input Filters {
+    title: String
+    description: String
+    status: String
+    assigneeId: String
+    createdAt: String
+    updatedAt: String
+  }
+
+  type IncidentConnection {
+    docs: [Incident!]!
+    pageInfo: PageInfo!
+  }
+
+  type PageInfo {
+    hasPrevPage: Boolean!,
+    hasNextPage: Boolean!,
+    page: Int,
+    totalPages: Int,
+    pagingCounter: Int,
+    prevPage: Int,
+    nextPage: Int
+  }
+
+  extend type Query {
+    incidents: [Incident]
+    search(page: Int, limit: Int, filters: Filters, sortBy: String, sortOrder: String): IncidentConnection!
+    incident(id: ID!): Incident
+  }
+
+  extend type Mutation {
+    create(title: String!, description: String!, assigneeId: ID): Incident
+    assign(id: ID!, assigneeId: ID!): Incident
+    acknowledge(id: ID!): Incident
+    resolve(id: ID!): Incident
+    delete(id: ID!): Boolean!
+  }
+`;
